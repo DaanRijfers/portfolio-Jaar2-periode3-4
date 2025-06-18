@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { FileText, Download, Eye } from "lucide-react"
 
 interface FileDisplayProps {
-  itemId: string
   file?: {
     name: string
     size: number
@@ -12,7 +11,7 @@ interface FileDisplayProps {
   }
 }
 
-export function FileDisplay({ itemId, file }: FileDisplayProps) {
+export function FileDisplay({ file }: FileDisplayProps) {
   const handleViewFile = (url: string) => {
     window.open(url, "_blank")
   }

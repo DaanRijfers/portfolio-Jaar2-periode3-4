@@ -4,11 +4,11 @@ import path from "path"
 
 const FILES_DIRECTORY = path.join(process.cwd(), "portfolio-files")
 
-export async function GET(request: NextRequest, { params }: { params: { itemId: string } }) {
+export async function GET(_: NextRequest, { params }: { params: { itemId: string } }) {
   try {
     const itemId = params.itemId
     const folderPath = path.join(FILES_DIRECTORY, itemId)
-    const files: any[] = []
+    const files: { name: string; size: number; url: string; lastModified: Date; type: string }[] = []
 
     try {
       await fs.access(folderPath)
