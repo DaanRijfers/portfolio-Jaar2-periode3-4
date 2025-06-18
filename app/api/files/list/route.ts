@@ -2,6 +2,14 @@ import { NextResponse } from "next/server"
 import { promises as fs } from "fs"
 import path from "path"
 
+interface FileInfo {
+  name: string
+  size: number
+  url: string
+  lastModified: Date
+  type: string
+}
+
 const FILES_DIRECTORY = path.join(process.cwd(), "portfolio-files")
 
 // Portfolio item folders mapping
@@ -26,13 +34,7 @@ export async function GET() {
       return NextResponse.json({})
     }
 
-    const allFiles: Record<string, Array<{ 
-      name: string; 
-      size: number; 
-      url: string; 
-      lastModified: Date; 
-      type: string; 
-    }>> = {}
+    const allFiles: Record<string, FileInfo[]> = {}
 
     // Check each portfolio folder
     for (const folder of PORTFOLIO_FOLDERS) {

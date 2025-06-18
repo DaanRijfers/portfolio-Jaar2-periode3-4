@@ -2,13 +2,21 @@ import { type NextRequest, NextResponse } from "next/server"
 import { promises as fs } from "fs"
 import path from "path"
 
+interface FileInfo {
+  name: string
+  size: number
+  url: string
+  lastModified: Date
+  type: string
+}
+
 const FILES_DIRECTORY = path.join(process.cwd(), "portfolio-files")
 
-export async function GET(_: NextRequest, { params }: { params: { itemId: string } }): Promise<NextResponse> {
+export async function GET(request: NextRequest, context: { params: Promise<{ itemId: string }> }) {
   try {
-    const itemId = params.itemId
+    const { itemId } = await context.params
     const folderPath = path.join(FILES_DIRECTORY, itemId)
-    const files: { name: string; size: number; url: string; lastModified: Date; type: string }[] = []
+    const files: FileInfo[] = []
 
     try {
       await fs.access(folderPath)

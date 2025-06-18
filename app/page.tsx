@@ -6,8 +6,7 @@ import { ProgressOverview } from "@/components/progress-overview"
 import { PortfolioItemCard } from "@/components/portfolio-item-card"
 import { AboutMe } from "@/components/about-me"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { RefreshCw, FolderTree, Info } from "lucide-react"
+import { RefreshCw } from "lucide-react"
 
 interface PortfolioFile {
   name: string
@@ -206,64 +205,10 @@ export default function Portfolio() {
 
           <AboutMe />
 
-          {/* File Structure Info */}
-          <Card className="mb-8 bg-gradient-to-br from-white to-blue-50/50 border-blue-200">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Info className="w-5 h-5 text-blue-600" />
-                Bestandsstructuur Instructies
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                    <FolderTree className="w-4 h-4 text-green-600" />
-                    Mappenstructuur
-                  </h4>
-                  <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm">
-                    <div className="text-gray-600">portfolio-files/</div>
-                    <div className="ml-4 text-blue-600">├── projectmanagement/</div>
-                    <div className="ml-8 text-gray-700">│ ├── product-backlog.pdf</div>
-                    <div className="ml-8 text-gray-700">│ ├── sprint-planning.pdf</div>
-                    <div className="ml-8 text-gray-700">│ └── retrospectives.pdf</div>
-                    <div className="ml-4 text-blue-600">├── onderzoek/</div>
-                    <div className="ml-8 text-gray-700">│ ├── onderzoeksvoorstel.pdf</div>
-                    <div className="ml-8 text-gray-700">│ └── onderzoeksrapport.pdf</div>
-                    <div className="ml-4 text-blue-600">└── feedback/</div>
-                    <div className="ml-8 text-gray-700"> ├── team-feedback.pdf</div>
-                    <div className="ml-8 text-gray-700"> └── docent-feedback.pdf</div>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-3">Instructies</h4>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                      Maak submappen voor elke portfolio sectie
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                      Plaats meerdere PDF bestanden per sectie
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                      Gebruik duidelijke bestandsnamen
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
-                      Klik vernieuwen na het toevoegen van bestanden
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
           {/* Refresh Controls */}
           <div className="mb-8 flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <div className="text-sm text-gray-600">Laatst bijgewerkt: {lastRefresh.toISOString()}</div>
+              <div className="text-sm text-gray-600">Laatst bijgewerkt: {lastRefresh.toLocaleString("nl-NL")}</div>
               <div className="text-sm text-blue-600 font-medium">
                 {totalFiles} bestand{totalFiles !== 1 ? "en" : ""} geladen
               </div>
