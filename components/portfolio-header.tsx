@@ -26,6 +26,9 @@ export function PortfolioHeader() {
             <p className="text-sm font-medium text-gray-600">Studiejaar 2024-2025</p>
           </div>
         </div>
+        <div className="mt-4">
+          <p className="text-lg font-medium text-gray-700">Created by: Daan Rijfers</p>
+        </div>
       </div>
     </div>
   )

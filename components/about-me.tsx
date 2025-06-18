@@ -89,7 +89,7 @@ export function AboutMe() {
             <MapPin className="w-4 h-4 text-blue-600" />
             <span className="font-medium text-blue-800">Studielocatie</span>
           </div>
-          <p className="text-blue-700">NHL Stenden Hogeschool - Campus Leeuwarden</p>
+          <p className="text-blue-700">NHL Stenden Hogeschool - Campus Emmen</p>
           <p className="text-sm text-blue-600 mt-1">HBO Informatica - Professionele vaardigheden 2.2</p>
         </div>
       </CardContent>
