@@ -4,9 +4,9 @@ import path from "path"
 
 const FILES_DIRECTORY = path.join(process.cwd(), "portfolio-files")
 
-export async function GET(request: NextRequest, { params }: { params: { path: string[] } }) {
+export async function GET(_: NextRequest, context: { params: { path: string[] } }) {
   try {
-    const filePath = params.path.join("/")
+    const filePath = context.params.path.join("/")
     const fullPath = path.join(FILES_DIRECTORY, filePath)
 
     // Security check - ensure file is within the allowed directory

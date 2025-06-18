@@ -263,7 +263,7 @@ export default function Portfolio() {
           {/* Refresh Controls */}
           <div className="mb-8 flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <div className="text-sm text-gray-600">Laatst bijgewerkt: {lastRefresh.toLocaleString("nl-NL")}</div>
+              <div className="text-sm text-gray-600">Laatst bijgewerkt: {lastRefresh.toISOString()}</div>
               <div className="text-sm text-blue-600 font-medium">
                 {totalFiles} bestand{totalFiles !== 1 ? "en" : ""} geladen
               </div>
