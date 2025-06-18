@@ -4,7 +4,7 @@ import path from "path"
 
 const FILES_DIRECTORY = path.join(process.cwd(), "portfolio-files")
 
-export async function GET(_: NextRequest, { params }: { params: { itemId: string } }) {
+export async function GET(_: NextRequest, { params }: { params: { itemId: string } }): Promise<NextResponse> {
   try {
     const itemId = params.itemId
     const folderPath = path.join(FILES_DIRECTORY, itemId)

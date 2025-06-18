@@ -26,13 +26,13 @@ export async function GET() {
       return NextResponse.json({})
     }
 
-    const allFiles: Record<string, { 
+    const allFiles: Record<string, Array<{ 
       name: string; 
       size: number; 
       url: string; 
       lastModified: Date; 
       type: string; 
-    }[]> = {}
+    }>> = {}
 
     // Check each portfolio folder
     for (const folder of PORTFOLIO_FOLDERS) {
